@@ -8,12 +8,13 @@ import scenenavigator.common.*;
 import scenenavigator.views.*;
 
 public class App extends Application {
-
     @Override
     public void start(Stage primaryStage){
         Navigator navigator = new Navigator(primaryStage);
-        navigator.registrerScene(SceneType.ONE, new SceneOne(navigator));
-        navigator.registrerScene(SceneType.TWO, new SceneTwo(navigator));
+        SceneOne sceneOne = new SceneOne(navigator);
+        SceneTwo sceneTwo = new SceneTwo(navigator);
+        navigator.registrerScene(SceneType.ONE, sceneOne);
+        navigator.registrerScene(SceneType.TWO, sceneTwo);
         navigator.navigateTo(SceneType.ONE);
     }
 

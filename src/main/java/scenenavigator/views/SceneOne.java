@@ -10,7 +10,7 @@ import scenenavigator.common.*;
 
 public class SceneOne extends Scene {
     private int number = 0;
-    private Label numberLabel = new Label(Integer.toString(number));
+    private Label numberLabel = new Label("Increment: " + Integer.toString(number));
     private Navigator navigator;
     private static Group rootNode = new Group();
 
@@ -20,7 +20,6 @@ public class SceneOne extends Scene {
         this.navigator = navigator;
 
         VBox vbox = new VBox();
-        HBox hbox = new HBox(5);
 
         Button button = new Button("Go to scene two");
         vbox.getChildren().addAll(numberLabel, button);
@@ -29,6 +28,26 @@ public class SceneOne extends Scene {
         VBox.setMargin(numberLabel, new Insets(20));
 
         rootNode.getChildren().add(vbox);
-        button.setOnAction(e -> navigator.navigateTo(SceneType.TWO); );
+        button.setOnAction(e -> {
+            navigator.navigateTo(SceneType.TWO);
+            number += 1;
+            numberLabel.setText("Increment: " + Integer.toString(number));
+        });
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public Label getNumberLabel() {
+        return numberLabel;
+    }
+
+    public void setNumberLabel(Label numberLabel) {
+        this.numberLabel = numberLabel;
     }
 }

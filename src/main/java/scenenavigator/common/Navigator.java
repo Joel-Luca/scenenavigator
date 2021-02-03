@@ -6,6 +6,7 @@ import java.util.*;
 
 public class Navigator {
     private Stage stage;
+
     private Map<SceneType, Scene> sceneMap = new HashMap<>();
 
     public Navigator(Stage stage) {
@@ -19,6 +20,14 @@ public class Navigator {
     public void navigateTo(SceneType sceneType) {
         stage.setScene(sceneMap.get(sceneType));
         stage.show();
+    }
+
+    public Map<SceneType, Scene> getSceneMap() {
+        return sceneMap;
+    }
+
+    public void setSceneMap(Map<SceneType, Scene> sceneMap) {
+        this.sceneMap = sceneMap;
     }
 
 }
